@@ -1,10 +1,9 @@
 package main
 
 import (
-	"bufio"
-	"flag"
-	"os"
 	"strconv"
+
+	"github.com/topher200/advent-of-code-2018/libinput"
 )
 
 func ApplyListOfValues(listOfvalues []string) int {
@@ -19,26 +18,6 @@ func ApplyListOfValues(listOfvalues []string) int {
 	return sum
 }
 
-func LoadInputFile(filename string) (res []string) {
-	file, err := os.Open(filename)
-	defer file.Close()
-	if err != nil {
-		panic(err)
-	}
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		res = append(res, scanner.Text())
-	}
-	return
-}
-
 func main() {
-	inputFilenamePtr := flag.String("input", "", "input filename")
-
-	flag.Parse()
-	inputFilename := *inputFilenamePtr
-
-	inputValues := LoadInputFile(inputFilename)
-	println(ApplyListOfValues(inputValues))
+	println(ApplyListOfValues(libinput.ReadLinesFromCLIInput()))
 }
