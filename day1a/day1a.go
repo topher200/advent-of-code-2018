@@ -19,5 +19,5 @@ func ApplyListOfValues(listOfvalues []string) int {
 }
 
 func main() {
-	println(ApplyListOfValues(libinput.ReadLinesFromCLIInput()))
+	println(ApplyListOfValues(libinput.ReadLinesFromCLIInput("day1a")))
 }

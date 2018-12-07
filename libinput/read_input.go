@@ -3,6 +3,7 @@ package libinput
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	"os"
 )
 
@@ -20,8 +21,9 @@ func LoadInputFile(filename string) (res []string) {
 	return
 }
 
-func ReadLinesFromCLIInput() []string {
-	inputFilenamePtr := flag.String("input", "", "input filename")
+func ReadLinesFromCLIInput(directory string) []string {
+	pathToDefaultInputFile := fmt.Sprintf("%s/input.txt", directory)
+	inputFilenamePtr := flag.String("input", pathToDefaultInputFile, "input filename")
 
 	flag.Parse()
 	inputFilename := *inputFilenamePtr
