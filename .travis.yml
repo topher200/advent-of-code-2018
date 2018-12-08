@@ -4,7 +4,7 @@ go:
     - "1.10"
 
 install:
-    make install
+    env GO111MODULE=on make install
 
 script:
-    make
+    env GO111MODULE=on make
