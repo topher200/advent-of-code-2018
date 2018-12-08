@@ -5,4 +5,4 @@ test :
 PHONY : install
 install :
 	export GO111MODULE=on
-	go get -u
+	go list ./...
